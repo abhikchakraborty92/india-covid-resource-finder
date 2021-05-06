@@ -1,12 +1,13 @@
 import requests
 import json
 import datetime
+import os
 
 class twitterdata:
     
     def __creds(self):
-        apikey = 'nVLSICzjH2ArISy1amvSV9rzF'
-        apisecret = 'asZrOcR2MOueesx9EqAyLFVJufYyA9YuTg4InKrnwENsfIq7c6'
+        apikey = os.environ.get('apikey')
+        apisecret = os.environ.get('apisecret')
         return apikey, apisecret
 
     def generatetoken(self):
@@ -105,15 +106,3 @@ class twitterdata:
             tweetdata = {}
         
         return tweetdata
-
-
-
-
-
-    
-
-
-
-# if __name__ == '__main__':
-#     t = twitterdata()
-#     print(t.gettweets(6))

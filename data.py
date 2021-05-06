@@ -41,6 +41,3 @@ def searchresources(resource,place,hours):
     return data
 
 
-if __name__ == '__main__':
-    print(searchresources('Plasma','Bangalore',50))
-
