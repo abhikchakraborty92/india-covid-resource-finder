@@ -24,7 +24,7 @@ with options[1]:
     place = st.text_input('Enter the city name where you are looking for the resource')
 
 with options[2]:
-    hours = st.number_input('What should be the maximum age of the search result (in hours)',min_value=2,max_value=144,value=48,step=1,help='Decreasing this value would produce latest leads. However, if leads are not available within the selected hours, increasing the number will fetch older leads.')
+    hours = st.number_input('What should be the maximum age of the search result (in hours)',min_value=2,max_value=144,value=36,step=1,help='Decreasing this value would produce latest leads. However, if leads are not available within the selected hours, increasing the number will fetch older leads.')
 
 
 search = st.button('Search')
