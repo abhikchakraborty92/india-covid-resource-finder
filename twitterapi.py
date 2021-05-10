@@ -72,10 +72,10 @@ class twitterdata:
         starttime = datetime.datetime.utcnow() - datetime.timedelta(hours=hours)
         return starttime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
         
-    def generateparams(self,max_results,hashtag,tweetfields,starttime,next_token = None):
+    def generateparams(self,max_results,query,tweetfields,starttime,next_token = None):
         params = {
             'max_results' : max_results,
-            'query' : hashtag,
+            'query' : query,
             'tweet.fields' : tweetfields,
             'start_time':starttime
         }
@@ -85,10 +85,10 @@ class twitterdata:
         return params
 
 
-    def gettweets(self,hashtag,hours,max_results=100,next_token=None):
+    def gettweets(self,query,hours,max_results=100,next_token=None):
         #hashtag = hashtag.replace('#','%23')
         starttime = self.generatestarttime(hours)
-        parameters = self.generateparams(max_results,hashtag,'source,created_at,attachments,author_id',starttime,next_token=next_token)
+        parameters = self.generateparams(max_results,query,'source,created_at,attachments,author_id',starttime,next_token=next_token)
         
         #url = f"https://api.twitter.com/2/tweets/search/recent?max_results={max_results}&query={hashtag}&tweet.fields=source,created_at,attachments,author_id&start_time={starttime}"
         url = 'https://api.twitter.com/2/tweets/search/recent'
